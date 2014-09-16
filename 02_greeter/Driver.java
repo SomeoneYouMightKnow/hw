@@ -2,6 +2,7 @@ import java.io.*;
 import java.util.*;
 
 public class Driver {
+
     public static void main(String[] args){
 	//All variables must be declared before use. 
 	Greeter g1;
@@ -22,19 +23,19 @@ public class Driver {
 	Greeter g2,g3;
 	g2 = new Greeter();
 
-	g3 = g2;
+	g3 = g2; //g3 copies the same address as g2
 
 	System.out.println("g1 is at"+g1);
         System.out.println("g2 is at"+g2);
-	System.out.println("g3 is at"+g3); //g3 copies the same address as g2
+	System.out.println("g3 is at"+g3);
 	//There are new memory allocations every time the program is run
 
 	g2 = new Greeter();
 
 	System.out.println("Test two");
 	System.out.println("g1 is at"+g1);
-        System.out.println("g2 is at"+g2);
-	System.out.println("g3 is at"+g3);
+        System.out.println("g2 is at"+g2); //g2 is different now
+	System.out.println("g3 is at"+g3); //g3 isn't
 
 	g1 = new Greeter();
 
@@ -42,6 +43,9 @@ public class Driver {
 	System.out.println("g1 is at"+g1);
         System.out.println("g2 is at"+g2);
 	System.out.println("g3 is at"+g3);
+
+	//garbage collection clears up memory we're not using anymore
+	//but causes a delay
 
 	g1.greet();
 	g1.greet();
