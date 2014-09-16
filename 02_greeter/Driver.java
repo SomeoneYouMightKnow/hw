@@ -4,7 +4,7 @@ import java.util.*;
 public class Driver {
     public static void main(String[] args){
 	//All variables must be declared before use. 
-	Greeter g;
+	Greeter g1;
 	//This (local) variable g is a Greeter
 	/*
 	  new does the following
@@ -15,11 +15,36 @@ public class Driver {
 
 	  This address is stored in g with the =
 	*/
-	g = new Greeter();
+	g1 = new Greeter();
 	//Above can be in one line Greeter g = new Greeter();
 	// System.out.println(g) prints the location of the memory
-	g.greet();
-	g.greet();
-	g.ungreet();
+	
+	Greeter g2,g3;
+	g2 = new Greeter();
+
+	g3 = g2;
+
+	System.out.println("g1 is at"+g1);
+        System.out.println("g2 is at"+g2);
+	System.out.println("g3 is at"+g3); //g3 copies the same address as g2
+	//There are new memory allocations every time the program is run
+
+	g2 = new Greeter();
+
+	System.out.println("Test two");
+	System.out.println("g1 is at"+g1);
+        System.out.println("g2 is at"+g2);
+	System.out.println("g3 is at"+g3);
+
+	g1 = new Greeter();
+
+	System.out.println("Test three");
+	System.out.println("g1 is at"+g1);
+        System.out.println("g2 is at"+g2);
+	System.out.println("g3 is at"+g3);
+
+	g1.greet();
+	g1.greet();
+	g1.ungreet();
     }
 }
