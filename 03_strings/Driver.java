@@ -1,8 +1,10 @@
 public class Driver {
     public static void main(String[] args){
         String s="thomas wong";
-		var i = s.indexOf(" ");
-		var first = s.substring(0,i);
-		var last = s.substring(i+1);
+        int i = s.indexOf(" ");
+	String first = s.substring(0,i);
+       	String last = s.substring(i+1);
+	System.out.println("first name: " + first);
+	System.out.println("last name: " + last);
     }
 }
