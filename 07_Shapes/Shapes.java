@@ -14,4 +14,13 @@ public class Shapes {
 	}
         return s;
     }
+
+    public String tri1(int a) {
+	int rowcounter = 0;
+	String output = "";
+	while (rowcounter + 1 < a) {
+	    
+	}
+    }
+
 }
