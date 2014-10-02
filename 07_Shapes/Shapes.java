@@ -37,9 +37,9 @@ public class Shapes {
 	int spacecounter = a - 1;
 	String output = "";
 	while (rowcounter < a) {
-	    while (spacecounter > 0) {
+	    while (spacecounter > 1) {
 		output = output + " ";
-		spacecounter = spacecounter 1 1;
+		spacecounter = spacecounter - 1;
 	    }
 	    while (starcounter > 0) {
 		output = output + "*";
@@ -52,5 +52,22 @@ public class Shapes {
 	}
 	return output;
     }
+
+    public String tri3(int a) {
+	int rowcounter;
+	int starcounter;
+	int spacecounter;
+	String output="";
+	// For row n, there are 1 + 2(n-1) stars
+	// For row n, there are a - n
+	for(rowcounter=0;rowcounter=a;rowcounter--){
+	    for(spacecounter=a-1;spacecounter=0;spacecounter--){
+
+	    }	
+	    for(starcounter=1;starcounter=1+2*(rowcounter
+
+
+	    
+	}
 
 }
