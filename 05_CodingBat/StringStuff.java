@@ -19,4 +19,52 @@ public class StringStuff{
 	} else {
 	    return 2*(n-21);}
     }
+
+
+
+    //Class lab
+
+    //nearHundred Given an int n, return true if it is within 10 of 100 or 200. Note: Math.abs(num) computes the absolute value of a number. 
+
+    public boolean nearHundred(int n) {
+	if (Math.abs(100 - n) <=10 || Math.abs(200 - n) <= 10) {
+	    return true;
+	} else {
+	    return false;
+	}
+    }
+
+    //mixStart Return true if the given string begins with "mix", except the 'm' can be anything, so "pix", "9ix" .. all count. 
+
+    public boolean mixStart(String str) {
+	if (str.length() >= 3) {
+	    return str.substring(1,3).equals("ix");
+	} else {
+	    return false;
+	}
+    }
+
+    //teaParty We are having a party with amounts of tea and candy. Return the int outcome of the party encoded as 0=bad, 1=good, or 2=great. A party is good (1) if both tea and candy are at least 5. However, if either tea or candy is at least double the amount of the other one, the party is great (2). However, in all cases, if either tea or candy is less than 5, the party is always bad (0). 
+
+    public int teaParty(int tea, int candy) {
+	if (tea < 5 || candy < 5) {
+	    return 0;
+	} else{
+	    if (tea >= 2 * candy || candy >= 2 * tea) {
+		return 2;
+	    } else{
+		return 1;
+	    }
+	}
+    }
+
+    //lastDigit Given three ints, a b c, return true if two or more of them have the same rightmost digit. The ints are non-negative. Note: the % "mod" operator computes the remainder, e.g. 17 % 10 is 7. 
+
+    public boolean lastDigit(int a, int b, int c) {
+	if ( a % 10 == b % 10 || a % 10 == c % 10 || b % 10 == c % 10) {
+	    return true;
+	} else {
+	    return false;
+	}
+    }
 }
