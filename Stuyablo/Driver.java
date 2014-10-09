@@ -22,5 +22,17 @@ public class Driver{
 	w.setName("WARRIOR");
 	m.attack(w);
 	w.attack(m);
+
+	//Warrior w3 = new Warrior("Groo")
+	//doesn't work.
+	//default constructor in super, 1 param in sub works.
+	//1 param constructor in super, default in sub doesn't.
+	//1 param in both doesn't
+	//default in super, 0 param in sub, or 0 in super, default in sub works
+	//0 in both works
+	//default in super, both 0 and 1 in sub works
+	//0 and 1 in super, default in sub doesn't work
+	//both in both works
+	//new Warrior calls Basechar constructors first.
     }
 }
