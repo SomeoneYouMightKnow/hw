@@ -24,6 +24,18 @@ public class Arraystuff {
 	    a[i] = 75+rnd.nextInt(76);
 	}
     }
+
+    public int find(n){
+	for ( int i = -1; i < a.length; i++){
+	    if (a[i] == n) {
+	    }
+	}
+    }
+
+    public int maxVal(int[] a){
+	
+
+    }
     
     public static void main(String[] args) {
 	/*Array is a pseudo class
