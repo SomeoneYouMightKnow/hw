@@ -27,7 +27,8 @@ public class Arraystuff {
 
     public int find(int n){
 	for ( int i = 0; i < a.length; i++){
-	    if (a[i] !== n) {
+	    /*
+	      if (a[i] !== n) {
 		if (a[i] == a.length-1){
 		    return -1;
 		}
@@ -35,11 +36,16 @@ public class Arraystuff {
 	    else{
 		return i;
 	    }
+	    */
+	    if (a[i] == n){
+		return i;
+	    }
 	}
+	return -1;
     }
 
-    public int maxVal(int[] a){
-	int max = 0;
+    public int maxVal(){
+	int max = a[0]; //don't use max = 0 in case of negatives.
 	for ( int i = 0; i < a.length; i++){
 	    if (a[i] > m){
 		max = a[i];
@@ -48,7 +54,55 @@ public class Arraystuff {
 	return max;
     }
 
+    public int freq(int i){
+	if (i > a.length) {
+	    return "Index not in array";
+	}
+	element = a[i];
+	output = 0;
+	for (int c = 0; c < a.length; c++){
+	    if (a[c] == element){
+		output++;
+	    }
+	}
+	return output;
+    }
 
+    public int sum67(int[] nums) {
+	int sum = 0;
+	for (int i = 0; i < nums.length; i++){
+	    if (nums[i] != 6){
+		sum+= nums[i];
+	    }
+	    else {
+		for (int c = i; c < nums.length; c++){
+		    if (nums[c] == 7){
+			i = c;
+			break;
+		    }
+		}
+	    }
+	}
+	return sum;
+    }
+
+    public boolean more14(int[] nums) {
+	int ones = 0;
+	int fours = 0;
+	for (int i = 0; i < nums.length; i++){
+	    if (nums[i] == 1){
+		ones++;
+	    }
+	    else if (nums[i] == 4){
+		fours++;
+	    }
+	}
+	return ones > fours;
+    }
+
+
+	
+    
     public static void main(String[] args) {
 	/*Array is a pseudo class
 	        contiguous block of memory used to store multiple values of a single data type
