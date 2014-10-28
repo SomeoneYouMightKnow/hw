@@ -1,17 +1,9 @@
 import java.util.*;
 
 public class Arraystuff {
-    private int[] a = new int[100];
+    private int[] a;
     Random rnd;
     private final double pi = 3.1415926; //Final variable set once never changed
-    
-    public String toString(){
-	String s = "";
-	for (int i = 0; i < a.length; i++){
-	    s = s + a[i]+ ", ";
-	}
-	return s;
-    }
 
     public Arraystuff(){
         this(100);
@@ -25,18 +17,38 @@ public class Arraystuff {
 	}
     }
 
-    public int find(n){
-	for ( int i = -1; i < a.length; i++){
-	    if (a[i] == n) {
+    public String toString(){
+	String s = "";
+	for (int i = 0; i < a.length; i++){
+	    s = s + a[i]+ ", ";
+	}
+	return s;
+    }
+
+    public int find(int n){
+	for ( int i = 0; i < a.length; i++){
+	    if (a[i] !== n) {
+		if (a[i] == a.length-1){
+		    return -1;
+		}
+	    }
+	    else{
+		return i;
 	    }
 	}
     }
 
     public int maxVal(int[] a){
-	
-
+	int max;
+	for ( int i = 0; i < a.length-1; i++){
+	    if (a[i] > a[i+1]){
+		max = a[i];
+	    }
+	}
+	return max;
     }
-    
+
+
     public static void main(String[] args) {
 	/*Array is a pseudo class
 	        contiguous block of memory used to store multiple values of a single data type
@@ -52,7 +64,7 @@ public class Arraystuff {
 	int[] b = {1,2,3,4,5,6,7};
 
 
-	//int[] a = new[100];
+	//int[] a = new int[100];
 	//System.out.println(a.length);
 	Arraystuff as = new Arraystuff();
 	System.out.println(as);
