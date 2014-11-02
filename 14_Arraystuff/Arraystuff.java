@@ -27,15 +27,11 @@ public class Arraystuff {
 
     public int find(int n){
 	for ( int i = 0; i < a.length; i++){
-	    if (a[i] !== n) {
-		if (a[i] == a.length-1){
-		    return -1;
-		}
-	    }
-	    else{
+	    if (a[i] == n) {
 		return i;
 	    }
 	}
+	return -1;
     }
 
     public int maxVal(int[] a){
