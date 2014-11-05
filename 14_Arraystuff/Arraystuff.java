@@ -2,6 +2,7 @@ import java.util.*;
 
 public class Arraystuff {
     private int[] a;
+
     Random rnd;
     private final double pi = 3.1415926; //Final variable set once never changed
 
@@ -14,6 +15,14 @@ public class Arraystuff {
 	a = new int[n];
 	for (int i = 0; i < a.length; i++){
 	    a[i] = 75+rnd.nextInt(76);
+	}
+    }
+
+    public Arraystuff(int min, int max, int size){
+	rnd = new Random();
+	a = new int[size];
+	for (int i = 0; i < a.length; i++){
+	    a[i] = min + rnd.nextInt(max-min);
 	}
     }
 
@@ -49,7 +58,7 @@ public class Arraystuff {
     public int maxVal(){
 	int max = a[0]; //don't use max = 0 in case of negatives.
 	for ( int i = 0; i < a.length; i++){
-	    if (a[i] > m){
+	    if (a[i] > max){
 		max = a[i];
 	    }
 	}
@@ -57,19 +66,29 @@ public class Arraystuff {
     }
 
     public int freq(int i){
-	if (i > a.length) {
-	    return "Index not in array";
+	if (i > a.length || i < 0) {
+	    System.out.println("Index not in array");
 	}
-	element = a[i];
-	output = 0;
-	for (int c = 0; c < a.length; c++){
-	    if (a[c] == element){
-		output++;
+	else{
+	    int element = a[i];
+	    int output = 0;
+	    for (int c = 0; c < a.length; c++){
+		if (a[c] == element){
+		    output++;
+		}
 	    }
+	    return output;
 	}
-	return output;
     }
 
+    public int mode(int[] a){
+	int[] freqs= new int[a.length];
+	for(int i = 0; i<a.length; i++){
+	    freqs[i] = freq(i);
+	}
+	return freqs.maxVal();
+    }
+    
     public int sum67(int[] nums) {
 	int sum = 0;
 	for (int i = 0; i < nums.length; i++){
@@ -119,7 +138,7 @@ public class Arraystuff {
     }
 
     public boolean tripleUp(int[] nums) {
-	for (int i = 0; i+2< nums.length; i++){
+	for (int i = 0; i<nums.length-2; i++){
 	    if ((nums[i] + 1) == nums[i+1] && nums[i+1] == (nums[i+2] - 1)) {
 		return true;
 	    }
@@ -160,7 +179,24 @@ public class Arraystuff {
 	return a;
     }
 
+
+    
+
     public static void main(String[] args) {
+	//args is an array of strings.
+	System.out.println(args.length); //Stores from command line, Strings separated by spaces, grouped by quotes.
+	int arraylength;
+        int maxvalue;
+
+	if (args.length > 0){
+	    System.out.println(args[0]);
+	    arraylength = Integer.parseInt(args[0]);
+	}
+       	if (args.length > 1){
+	    System.out.println(args[1]);
+	    maxvalue = Integer.parseInt(args[1]);
+	}
+	
 	/*Array is a pseudo class
 	  contiguous block of memory used to store multiple values of a single data type
 	*/
@@ -170,7 +206,7 @@ public class Arraystuff {
 	intArray[2] = 20;
 	//intArray[7] = 30; //compiles but doesn't run
 	//intArray[-1] = 30; //same
-	intArray.length; //final variable, can't reassign the value
+	//intArray.length = 100; //final variable, can't reassign the value
 	//"new" creates 0s or "null"s in the array
 	int[] b = {1,2,3,4,5,6,7};
 
