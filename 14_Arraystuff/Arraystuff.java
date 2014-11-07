@@ -55,7 +55,7 @@ public class Arraystuff {
 	return -1;
     }
 
-    public int maxVal(){
+    public int maxVal(int[] a){
 	int max = a[0]; //don't use max = 0 in case of negatives.
 	for ( int i = 0; i < a.length; i++){
 	    if (a[i] > max){
@@ -65,30 +65,62 @@ public class Arraystuff {
 	return max;
     }
 
-    public int freq(int i){
-	if (i > a.length || i < 0) {
-	    System.out.println("Index not in array");
+    public int maxValIndex(int[] a){
+	int max = a[0];
+	int maxIndex = 0;
+	for ( int i = 0; i < a.length; i++){
+	    if (a[i] > max){
+		max = a[i];
+		maxIndex = i;
+	    }
 	}
-	else{
-	    int element = a[i];
-	    int output = 0;
+	return maxIndex;
+    }
+
+    
+    public int freq(int i){
+	int element = a[i];
+	int output = 0;
+	if (i < a.length && i <= 0) {
 	    for (int c = 0; c < a.length; c++){
 		if (a[c] == element){
 		    output++;
 		}
 	    }
-	    return output;
 	}
+	return output;
     }
 
+    /*
     public int mode(int[] a){
 	int[] freqs= new int[a.length];
 	for(int i = 0; i<a.length; i++){
 	    freqs[i] = freq(i);
 	}
-	return freqs.maxVal();
+	return maxVal(freqs);
     }
-    
+    */
+    public int mode(int[] a){
+	int modeSoFar=a[0],
+	    modeCount=freq(a[0]);
+				
+	for (int i=0;i<a.length;i++){
+	    if (freq(a[i])>modeCount){
+		modeSoFar = a[i];
+		modeCount = freq(a[i]);
+	    }
+	}
+	return modeSoFar;
+    }
+
+    public int fastmode(int[] a){
+	int[] freqs = new int[maxVal(a)+1];
+	for (int i = 0; i < a.length; i++){
+	    freqs[a[i]]++;
+	}
+	return a[maxValIndex(freqs)];
+    }
+
     public int sum67(int[] nums) {
 	int sum = 0;
 	for (int i = 0; i < nums.length; i++){
@@ -183,20 +215,6 @@ public class Arraystuff {
     
 
     public static void main(String[] args) {
-	//args is an array of strings.
-	System.out.println(args.length); //Stores from command line, Strings separated by spaces, grouped by quotes.
-	int arraylength;
-        int maxvalue;
-
-	if (args.length > 0){
-	    System.out.println(args[0]);
-	    arraylength = Integer.parseInt(args[0]);
-	}
-       	if (args.length > 1){
-	    System.out.println(args[1]);
-	    maxvalue = Integer.parseInt(args[1]);
-	}
-	
 	/*Array is a pseudo class
 	  contiguous block of memory used to store multiple values of a single data type
 	*/
@@ -211,9 +229,21 @@ public class Arraystuff {
 	int[] b = {1,2,3,4,5,6,7};
 
 
-	//int[] a = new int[100];
-	//System.out.println(a.length);
-	Arraystuff as = new Arraystuff();
-	System.out.println(as);
+	
+	//args is an array of strings.
+	System.out.println(args.length); //Stores from command line, Strings separated by spaces, grouped by quotes.
+	int arraylength=100;
+        int maxvalue=100;
+
+	if (args.length > 0){
+	    System.out.println(args[0]);
+	    arraylength = Integer.parseInt(args[0]);
+	}
+       	if (args.length > 1){
+	    System.out.println(args[1]);
+	    maxvalue = Integer.parseInt(args[1]);
+	}
+	Arraystuff thing = new Arraystuff(0, maxvalue, arraylength);
+
     }
 }
