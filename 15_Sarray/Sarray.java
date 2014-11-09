@@ -15,11 +15,12 @@ public class Sarray {
 	    data[size()] = i;
 	}
 	else{
-	    int[] added = new int[data.length+1];
-	    for (int index = 0; index < data.length; index++){
-		added[index] = data[index];
+	    int[] newData  = new int[data.length+1];
+	    for (int c = 0; c < data.length; c++){
+		newData[c] = data[c];
 	    }
-	    added[added.length-1] = i;
+	    newData[newData.length-1] = i;
+	    data = newData;
 	}
 	return true;
     }
@@ -28,7 +29,23 @@ public class Sarray {
     public void  add(int index, int i){
         // adds item i  at index, shifting everything down as needed.
         // also grows as needed
-	
+	if (data.length > size()){
+	    for (int c = data.length; c > index; c--){
+		data[c] = data[c-1];
+	    }
+	    data[index] = i;
+	}
+	else{
+	    int[] newData = new int[data.length+1);
+	    for (int c = 0; c < index ; c++){
+		newData[c] = data[c];
+	    }
+	    newData[index] = i;
+	    for (int c = index + 1; c < data.length; c++) {
+		newData[c+1] = data[c];
+	    }
+	    data = newData;
+	}
     }
 
     public int size() {
