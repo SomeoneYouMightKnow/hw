@@ -1,11 +1,22 @@
+import.java.util.*;
+
 public class Sarray {
     int[] data;
     int   last;
+    Random rnd;
 
     public Sarray() {
         // set up the initial instance variables
 	data = new int[10];
 	last = 5;
+    }
+
+    public String toString(){
+	String array = "";
+	for (int i = 0; i < data.length; i++){
+	    array+= data[i] + ", ";
+	}
+	return array;
     }
 
     public boolean add(int i){
@@ -15,7 +26,7 @@ public class Sarray {
 	    data[size()] = i;
 	}
 	else{
-	    int[] newData  = new int[data.length+1];
+	    int[] newData  = new int[data.length+1000];
 	    for (int c = 0; c < data.length; c++){
 		newData[c] = data[c];
 	    }
@@ -24,7 +35,6 @@ public class Sarray {
 	}
 	return true;
     }
-
 
     public void  add(int index, int i){
         // adds item i  at index, shifting everything down as needed.
@@ -36,7 +46,11 @@ public class Sarray {
 	    data[index] = i;
 	}
 	else{
+<<<<<<< HEAD
 	    int[] newData = new int[data.length+1];
+=======
+	    int[] newData = new int[data.length+1000];
+>>>>>>> b5164ddd0b1bc8f04fe98a543bef5e8a66a621ca
 	    for (int c = 0; c < index ; c++){
 		newData[c] = data[c];
 	    }
@@ -75,7 +89,7 @@ public class Sarray {
     }
 
     public int remove(int index){
-        // removes the item at index i
+        // removes the item at index
         // returns the old value
 	int old = data[index];
 	for (int i = index; i < size(); i++){
@@ -83,4 +97,28 @@ public class Sarray {
 	}
 	return old;
     }
+
+
+    public static void main(String[] args){
+	Sarray array = new Sarray();
+	System.out.println(array);
+	System.out.println(array.size());
+	array.add(5);
+	System.out.println();
+	System.out.println(array);
+	System.out.println(array.size());
+	System.out.println();
+	array.add(5,5);
+	System.out.println(array);
+	System.out.println();
+	System.out.println(array.get(5));
+	array.set(5, 0);
+	System.out.println(array);
+	System.out.println(array.size());
+	System.out.println();
+	array.remove(5);
+	System.out.println(array);
+	System.out.println(array.size());
+    }
+
 }
