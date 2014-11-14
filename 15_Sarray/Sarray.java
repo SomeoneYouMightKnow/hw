@@ -36,7 +36,7 @@ public class Sarray {
 	    data[index] = i;
 	}
 	else{
-	    int[] newData = new int[data.length+1);
+	    int[] newData = new int[data.length+1];
 	    for (int c = 0; c < index ; c++){
 		newData[c] = data[c];
 	    }
