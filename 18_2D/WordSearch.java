@@ -26,4 +26,32 @@ public class WordSearch {
 	return s;
     }
 
+    public void addWordH( String w, int row, int col) {
+	int c = col;
+	boolean overlap = false;
+	for (int i = 0; i < w.length(); i++) {
+	    if (!(board[row][c] == '.')) {
+		overlap = true;
+	    }
+	    int l = i;
+	    if (overlap){
+		for (int j = c; j < w.length() - l; j++) {
+		    if (board[row][j+1] == w.charAt(l)) {
+
+		    }
+		    l++;
+		}
+	    }
+	    c++;
+	}
+
+
+    
+	for (int i = 0; i < w.length(); i++) {
+	    board[row][c] = w.charAt(i); //replaces any letters already there
+	    c++; //could go out of bounds
+	}
+    }
+
+    
 }
