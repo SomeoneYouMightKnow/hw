@@ -4,7 +4,7 @@ import java.io.*;
 public class WordSearch {
     private Random r = new Random();
     private char[][] board; //empty board is filled with null chars
-    private ArrayList<String> wordlist, words;
+    private ArrayList<String> wordList, words;
     private char[][] key;
 
     public WordSearch( int r, int c ) {
@@ -82,7 +82,7 @@ public class WordSearch {
 	key = new char[board.length][board[0].length];
 	for (int i = 0; i < board.length; i++) {
 	    for (int j = 0; j < board[i].length; j++) {
-		kay[i][j] = board[i][j];
+		key[i][j] = board[i][j];
 	    }
 	}
 
@@ -92,7 +92,7 @@ public class WordSearch {
 	words = new ArrayList<String>();
 	int i = 0;
 	while (i<numwords) {
-	    int wordIndex = rnd.nextInt(wordlist.size());
+	    int wordIndex = r.nextInt(wordList.size());
 	    String word = wordList.get(wordIndex);
 	    if (addWord(word)) {
 		words.add(word);
@@ -101,6 +101,15 @@ public class WordSearch {
 	    i++;
 	}
 	makeKey();
+
+	for (i = 0; i < board.length; i++) {
+	    for (int j = 0; j < board[0].length; j++) {
+		if (board[i][j] == '.') {
+		    // board[i][j] = (char)((int)'a'+r.nextInt(26));
+		    board[i][j] = letters.charAt(r.nextInt(letters.length()));
+		}
+	    }
+	}
     }
 
     public String getWords(){
