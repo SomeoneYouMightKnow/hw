@@ -1,6 +1,11 @@
-public class WordSearch {
+import java.util.*;
+import java.io.*;
 
+public class WordSearch {
+    private Random r = new Random();
     private char[][] board; //empty board is filled with null chars
+    private ArrayList<String> wordlist, words;
+    private char[][] key;
 
     public WordSearch( int r, int c ) {
 	board = new char[r][c];
@@ -9,6 +14,16 @@ public class WordSearch {
 		board[i][j] = '.';
 	    }
 	}
+
+	Scanner sc = null;
+	try {
+	    sc = new Scanner(new File("words.txt"));
+	} catch (Exception e) {
+	    System.out.println("Can't open file");
+	    System.exit(0);
+	}
+
+	
     }
 
     public WordSearch() {
@@ -25,6 +40,18 @@ public class WordSearch {
 	}
 	return s;
     }
+
+    public String getKey() {
+	String s = "";
+	for (int i = 0; i < key.length; i++) {
+	    for (int j = 0; j < key[i].length; j++) {
+		s = s + key[i][j];
+	    }
+	    s = s + "\n";
+	}
+	return s;
+    }
+	
 
     public void addWordH( String w, int row, int col) {
 	int c = col;
@@ -44,8 +71,6 @@ public class WordSearch {
 	    }
 	    c++;
 	}
-
-
     
 	for (int i = 0; i < w.length(); i++) {
 	    board[row][c] = w.charAt(i); //replaces any letters already there
@@ -53,5 +78,33 @@ public class WordSearch {
 	}
     }
 
+    public void makeKey() {
+	key = new char[board.length][board[0].length];
+	for (int i = 0; i < board.length; i++) {
+	    for (int j = 0; j < board[i].length; j++) {
+		kay[i][j] = board[i][j];
+	    }
+	}
+
+    }
+
+    public void buildPuzzle(int numwords) {
+	words = new ArrayList<String>();
+	int i = 0;
+	while (i<numwords) {
+	    int wordIndex = rnd.nextInt(wordlist.size());
+	    String word = wordList.get(wordIndex);
+	    if (addWord(word)) {
+		words.add(word);
+		wordList.remove(wordIndex);
+	    }
+	    i++;
+	}
+	makeKey();
+    }
+
+    public String getWords(){
+	return ""+words;
+    }
     
 }
