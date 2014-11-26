@@ -12,7 +12,7 @@ public class Readfile {
 	    System.exit(0);
 	}
 
-	//Don't have the whole program in the try..catch
+	//Don't put the whole program in the try..catch
 	//Make sure sc exists and is initialized outside of the try..catch
 	while (sc.hasNext()) {
 	    String s = sc.next();
