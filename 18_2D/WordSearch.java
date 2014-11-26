@@ -54,27 +54,24 @@ public class WordSearch {
 	
 
     public void addWordH( String w, int row, int col) {
-		boolean overlap = false;
-		for (int i = col; i < col + w.length() - 1; i++) {
-			if (board[row][i] != '.') {
-				overlap = true;
-	    }
-	}
-	if (!overlap){
-		for (int j = 0; j < w.length() - l; j++) {
-			if (board[row][j+col] == w.charAt(j)) {
-				
-			}
-		    l++;
-		}
+	boolean illegalOverlap = false;
+	for (int i = 0; i < w.length() - 1; i++) {
+	    if ((board[row][col+i] != '.') && (board[row][col+i] != w.charAt(i))) {
+		illegalOverlap = true;
 	    }
 	}
 
-/*
-	for (int i = 0; i < w.length(); i++) {
-	    board[row][c] = w.charAt(i); //replaces any letters already there
-	    c++; //could go out of bounds
+	if (!illegalOverlap){
+	    for (int j = 0; j < w.length() - l; j++) {
+		board[row][j+col] = w.charAt(j);
+	    }
 	}
+
+	/*
+	  for (int i = 0; i < w.length(); i++) {
+	  board[row][c] = w.charAt(i); //replaces any letters already there
+	  c++; //could go out of bounds
+	  }
 	*/
     }
 
