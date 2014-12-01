@@ -46,11 +46,8 @@ public class Sarray {
 	    data[index] = i;
 	}
 	else{
-<<<<<<< HEAD
 	    int[] newData = new int[data.length+1];
-=======
 	    int[] newData = new int[data.length+1000];
->>>>>>> b5164ddd0b1bc8f04fe98a543bef5e8a66a621ca
 	    for (int c = 0; c < index ; c++){
 		newData[c] = data[c];
 	    }
@@ -112,7 +109,7 @@ public class Sarray {
 	System.out.println(array);
 	System.out.println();
 	System.out.println(array.get(5));
-	array.set(5, 0);
+	array.set(5,0);
 	System.out.println(array);
 	System.out.println(array.size());
 	System.out.println();
