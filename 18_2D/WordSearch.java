@@ -3,9 +3,9 @@ import java.io.*;
 
 public class WordSearch {
     private Random r = new Random();
-    private char[][] board; //empty board is filled with null chars
+    private char[][] board, key;
     private ArrayList<String> wordList, words;
-    private char[][] key;
+    private int numRows, numCols;
 
     public WordSearch( int r, int c ) {
 	board = new char[r][c];
@@ -22,8 +22,10 @@ public class WordSearch {
 	    System.out.println("Can't open file");
 	    System.exit(0);
 	}
-
 	
+	numRows = r;
+	numCols = c;
+
     }
 
     public WordSearch() {
@@ -105,9 +107,19 @@ public class WordSearch {
     }
 
     public boolean addWord(String w) {
-	
+	boolean output = false;
 
-
+	int r = rnd.nextInt(numRows);
+	int c = rnd.nextInt(numCols);
+	int deltaRow = rnd.nextInt(3) - 1;
+	int deltaCol = rnd.nextInt(3) - 1;
+	if (validInsertion(w,r,c,deltaR,deltaC)){
+	    addWord(w,r,c,deltaR,deltaC);
+	    output = true;
+	} else{
+	    output = false;
+	}
+	return output;
     }
 
     public void makeKey() {
