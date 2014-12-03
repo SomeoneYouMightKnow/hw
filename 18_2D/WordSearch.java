@@ -2,7 +2,7 @@ import java.util.*;
 import java.io.*;
 
 public class WordSearch {
-    private Random r = new Random();
+    private Random rnd = new Random();
     private char[][] board, key;
     private ArrayList<String> wordList, words;
     private int numRows, numCols;
@@ -113,8 +113,13 @@ public class WordSearch {
 	int c = rnd.nextInt(numCols);
 	int deltaRow = rnd.nextInt(3) - 1;
 	int deltaCol = rnd.nextInt(3) - 1;
-	if (validInsertion(w,r,c,deltaR,deltaC)){
-	    addWord(w,r,c,deltaR,deltaC);
+	if (validInsertion(w,r,c,deltaRow,deltaCol)){
+
+
+
+	    asdfasdfasdfasdf
+
+	    
 	    output = true;
 	} else{
 	    output = false;
@@ -136,7 +141,7 @@ public class WordSearch {
 	words = new ArrayList<String>();
 	int i = 0;
 	while (i<numwords) {
-	    int wordIndex = r.nextInt(wordList.size());
+	    int wordIndex = rnd.nextInt(wordList.size());
 	    String word = wordList.get(wordIndex);
 	    if (addWord(word)) {
 		words.add(word);
@@ -150,8 +155,8 @@ public class WordSearch {
 	    for (int j = 0; j < board[0].length; j++) {
 		if (board[i][j] == '.') {
 		    String letters = "abcdefghijklmnopqrstuvwxyz";
-		    // board[i][j] = (char)((int)'a'+r.nextInt(26));
-		    board[i][j] = letters.charAt(r.nextInt(letters.length()));
+		    // board[i][j] = (char)((int)'a'+rnd.nextInt(26));
+		    board[i][j] = letters.charAt(rnd.nextInt(letters.length()));
 		}
 	    }
 	}
