@@ -3,9 +3,18 @@ public class OrderedSarray extends StringSarray {
     private int last;
     
 
-    public int add(String s) {
+    public boolean add(String s) {
+	for (int i = last; i >= 0; i--){
+	    if ( data[i].compareTo(s) ){
+		
+		
+	    }
+	    else {
+		
+		
+	    }
+	}
 	
-
     }
 
     public String set(int index, String s) {
