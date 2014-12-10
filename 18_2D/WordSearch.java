@@ -115,10 +115,13 @@ public class WordSearch {
 	int deltaCol = rnd.nextInt(3) - 1;
 	if (validInsertion(w,r,c,deltaRow,deltaCol)){
 
+	    for (int i = 0; i < w.length(); i++) {
 
-
-	    asdfasdfasdfasdf
-
+		board[r][c] = w.charAt(i);
+	    
+		r = r + deltaRow;
+		c = c + deltaCol;
+	    }
 	    
 	    output = true;
 	} else{
