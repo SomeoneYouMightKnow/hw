@@ -1,0 +1,16 @@
+The program Puzzle-ception is a terminal-based escape the room game that implements various puzzles as part of gameplay.
+
+Driver.java contains the script for the game, and a massive block of if/else statements and while loops to have the player explore the room that he or she is currently trapped in. The use of switch/case blocks could make the code cleaner, as in lines 46, 79, and 101. The if statememts test for each case of r.
+Decisions are all made using numerical input by the user, which is done through the use tof he AskUser() method in conjunction with the testing for cases. Invalid input by the user is also accounted for. (See lines 64, 75, 90, and 105)
+
+Game.java takes care of player's interactions with the items in the room. All interactions are based on user input, so again, there are a lot of if/elses in this file. The game is complex, and the code reflects that. A huge part of the code is in one big method, but it would be easier to read if there were individual methods for interacting with each item, rather than one method for all of them.
+
+Inventory.java and Item.java keep track of the items in and out of the player's inventory. Inventory.java also has a method for combining items. The code catches invalid user input (Lines 14, 53).
+
+EightGamePuzzle.java generates a 3x3 sliding tile puzzle, creates a scrambled state for it, and then checks if the user's version is the same as the stored solution of the puzzle. This seems like the best way to generate a valid puzzle.
+
+SudokuPuzzle.java is being scrapped.
+
+Puzzle.java reacts to the solving or failing of a puzzle. It's standard code.
+
+All is well, but look into switch/case for case-by-case code.
